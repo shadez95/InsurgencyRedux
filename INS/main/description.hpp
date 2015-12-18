@@ -100,6 +100,7 @@ class CfgFunctions {
 	#include "..\mhq\functions.hpp"
 	#include "..\tickets\functions.hpp"
 	#include "..\restrictions\functions.hpp"
+	#include "..\suicide\functions.hpp"
 };
 
 class Params {

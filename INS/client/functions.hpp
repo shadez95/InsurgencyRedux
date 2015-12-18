@@ -10,5 +10,11 @@ class ADDON {
 		class marineLoadouts;
 		class arsenal;
 		class openFieldManual;
+		class setChannels;
+		class opforArsenal;
+		class checkWeap;
+		class hideWeapons;
+		class showWeapons;
+		class opforTeleport;
 	};
 };

@@ -13,6 +13,8 @@ _vehicleName = _vehicle getVariable ["vehicleName","MHQ"];
 	TRACE_2("Vehicle mhq setup",_vehicle,_vehicleName);
 	
 	_mkr = createMarker [format["%1_mkr",_vehicleName],(position _vehicle)];
+	_mhqCount = missionNamespace getVariable ["INS_mhq_count",0];
+	missionNamespace setVariable ["INS_mhq_count",(_mhqCount + 1),true];
 	_mkr setMarkerShape "ICON";
 	_mkr setMarkerType "b_hq";
 	_nameArray = _vehicleName splitString "INS_";
@@ -24,6 +26,7 @@ _vehicleName = _vehicle getVariable ["vehicleName","MHQ"];
 	};
 	_mkr setMarkerText _name;
 	_vehicle setVariable [QGVAR(markerText),_name,true];
+	TRACE_2("MHQ marker, starting marker loop and check on MHQ marker",_mkr,_name);
 	while {true} do {
 		if !(alive _vehicle) exitWith { deleteMarker _mkr; };
 		_mkr setMarkerPos (position _vehicle);

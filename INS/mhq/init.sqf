@@ -78,6 +78,9 @@ publicVariable "MHQ_arsenal";
 if !(isServer) exitWith { LOG("MHQ init - client finished and exiting... server init continuing"); };
 
 if (isServer) then {
+	_MHQcount = count GVAR(vehicleList);
+	missionNamespace setVariable ["INS_mhq_vehicleCount",_MHQcount,true];
 	TRACE_1("MHQ Vehicle List on the server",GVAR(vehicleList));
 	{ [_x,_forEachIndex] call FUNC(mhqSetup); } forEach GVAR(vehicleList);
+	missionNamespace setVariable ["INS_mhq_DONE",true,true];
 };

@@ -44,7 +44,7 @@ if (local player) then {
 						_vehicle = objectParent _unit;
 						if ((isNull _vehicle) && !(driver _vehicle == _unit)) exitWith {};
 						
-						if ((_vehicle isKindOf "Air") OR ([_unit,_vehicle] call FUNC(isCoPilot))) then {
+						if ((_vehicle isKindOf "Air") && ((driver _vehicle == _unit) || ([_unit,_vehicle] call FUNC(isCoPilot)))) then {
 							hintSilent "You are not a crewman nor a pilot";
 							_unit action ["GetOut", vehicle _unit];
 						};
@@ -65,7 +65,7 @@ if (local player) then {
 					_vehicle = objectParent _unit;
 					if ((isNull _vehicle) OR !(driver _vehicle == _unit)) exitWith {};
 					
-					if ((_vehicle isKindOf "Air") OR (_vehicle isKindOf "Tank") && (driver _vehicle == _unit) OR ([_unit,_vehicle] call FUNC(isCoPilot))) then {
+					if (((_vehicle isKindOf "Air") OR (_vehicle isKindOf "Tank")) && ((driver _vehicle == _unit) OR ([_unit,_vehicle] call FUNC(isCoPilot)))) then {
 						hintSilent "You are not a member";
 						_unit action ["GetOut", vehicle _unit];
 					};

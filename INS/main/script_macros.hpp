@@ -1,6 +1,12 @@
 #include "\x\cba\addons\main\script_macros_mission.hpp"
 
-#define VERSION 0.71
+//#define VERSION 0.8
+#define MAJOR 0
+#define MINOR 8
+#define PATCHLVL 1
+#define BUILD 151218//DATE YY/MM/DD
+
+#define VERSION MAJOR.MINOR.PATCHLVL.BUILD
 
 #define COMPILE_FINAL(var1) compileFinal preprocessFileLineNumbers var1
 #define COMPILE_FILE(var1) COMPILE_FILE2_SYS('var1')

@@ -7,6 +7,7 @@ private["_fnc_INS_civKilled","_fnc_INS_serverFPS"];
 
 if (hasInterface) then {
 	waitUntil { !isNull player };
+	
 	TRACE_1("Checking to make sure you are you for JIP reasons",player);
 	if (player != player) then {
 		TRACE_1("Player still does not equal player",player);
@@ -23,17 +24,6 @@ for "_i" from 0 to ((count paramsArray) - 1) do {
 if (isClass(configFile>>"CfgPatches">>"rhsusf_main")) then { //RHS Mod Enabled?
 	GVARMAIN(rhsEnabled) = true;
 } else { GVARMAIN(rhsEnabled) = false; };
-
-//Define public variable event handlers for server FPS
-/*if (isDedicated) then {
-	//"INS_FPS" addPublicVariableEventHandler { // TODO:Possibly not working, need to test more on server
-		params["_variable","_value"];
-		//missionNamespace setVariable [QGVAR(serverFPS),diag_fps,true];
-		INS_ClientInfo = [true,diag_fps];
-		_ownerID = owner _value;
-		_ownerID publicVariableClient "INS_ClientInfo";
-	};
-};*/
 
 //Define local functions to register events with
 _fnc_INS_civKilled = { systemChat format["%1 killed %2",name ARG_1(_this,1),name ARG_1(_this,0)]; };
@@ -63,16 +53,16 @@ _fnc_removeAction = {
 ["INS_LOCKVEHICLE_EH", FUNC(lockVehicle)] call CBA_fnc_addEventHandler;
 ["INS_REMOVEACTION_EH", _fnc_removeAction] call CBA_fnc_addEventHandler;
 
-//Execute server side modules
-if (isServer) then { execVM QUOTE(PREFIX\COMPONENT\initServerCore.sqf); LOG("initServerCore spawned"); }; //This has to be on it's own thread
-
 //Execute other modules
 if ((missionNamespace getVariable ["INS_tickets",80]) != 0) then { INIT_MODULE(tickets); };
 if ((missionNamespace getVariable ["INS_MHQ",1]) == 1) then { INIT_MODULE(mhq); };
 if ((missionNamespace getVariable ["INS_Restrictions",1]) > 0) then { INIT_MODULE(restrictions); };
 
-//Execute client side modules
-//if !(local player) exitWith {};
 if ((hasInterface) && (local player)) then {
-	[player] INIT_MODULE(client);
+	INIT_MODULE(client);
+	INIT_MODULE(suicide);
 };
+
+//Start cache system
+//if (isServer) then { execVM QUOTE(PREFIX\COMPONENT\initServerCore.sqf); LOG("initServerCore spawned"); }; //This has to be on it's own thread
+if (isServer) then { call COMPILE_IFILE(initServerCore); }; //Moved this down to try and keep everything on the same thread and to not use execVM in this file
