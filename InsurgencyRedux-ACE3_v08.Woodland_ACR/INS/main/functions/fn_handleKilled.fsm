@@ -1,0 +1,65 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\SteamApps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, fn_handleKilled">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Init",0,250,-37.532944,78.221085,52.467056,128.221085,0.000000,"Init"};
+item1[] = {"side__unit",4,218,-37.942616,180.278076,52.057384,230.278076,0.000000,"side _unit"};
+item2[] = {"_",2,250,-37.908348,278.140900,52.091667,328.140900,0.000000,""};
+link0[] = {0,1};
+link1[] = {1,2};
+globals[] = {0.000000,0,0,0,0,640,480,1,4,6316128,1,-315.354645,315.354065,539.538452,-320.948700,667,910,1};
+window[] = {2,-1,-1,-32000,-32000,915,156,1596,156,3,685};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "fn_handleKilled";
+        class States
+        {
+                /*%FSM<STATE "Init">*/
+                class Init
+                {
+                        name = "Init";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"params[[""_unit"",objNull]];" \n
+                         "" \n
+                         "switch (side _unit) do {" \n
+                         "	case Civilian: { [_unit] call INS_civ_fnc_civKilledHandler; };" \n
+                         "	case EAST;" \n
+                         "	case RESISTANCE: { [_unit] call INS_main_fnc_intelHandler; };" \n
+                         "};" \n
+                         "true;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "side__unit">*/
+                                class side__unit
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"side _unit"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Init";
+        finalStates[] =
+        {
+        };
+};
+/*%FSM</COMPILE>*/
