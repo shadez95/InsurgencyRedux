@@ -7,7 +7,7 @@ _unit addEventHandler["Killed", {
 			_intelObject = [_unit] call INS_main_fnc_createIntelObject;
 			[_intelObject] call INS_main_fnc_addActionToIntel;
 		} else {
-			if ((missionNamespace getVariable ["INS_DropRate",90]) > (random 100)) then {
+			if ((missionNamespace getVariable ["INS_DropRate",15]) > (random 100)) then {
 				_intelObject = [_unit] call INS_main_fnc_createIntelObject;
 				[_intelObject] call INS_main_fnc_addActionToIntel;
 			};

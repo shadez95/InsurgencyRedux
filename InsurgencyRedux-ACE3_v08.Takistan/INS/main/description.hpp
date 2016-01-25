@@ -120,8 +120,8 @@ class CfgRemoteExec {
     class Functions {
         mode = 2;
         jip = 1;
-				class INS_fnc_hint { allowTargets = 1; };
-				class CBA_fnc_localEvent { allowTargets = 1; };
+		class INS_main_fnc_hint { allowTargets = 1; };
+		class CBA_fnc_localEvent { allowTargets = 1; };
     };
     class Commands {};
 };

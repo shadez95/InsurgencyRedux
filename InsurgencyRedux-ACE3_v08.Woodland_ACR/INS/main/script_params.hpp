@@ -26,7 +26,7 @@ class INS_CacheLimit {
 class INS_DropRate {
 	//--- paramsArray[3]
 	title = "The rate at which intel will drop off dead bodies";
-	values[] = {98,95,92,90,85,80,75,65,50,0};
+	values[] = {2,5,8,10,15,20,25,35,50,100};
 	texts[] = {"2% Chance","5% Chance","8% Chance","10% Chance","15% Chance","20% Chance","25% Chance","35% Chance","50% Chance","100% Chance"};
-	default = 90;
+	default = 15;
 };
