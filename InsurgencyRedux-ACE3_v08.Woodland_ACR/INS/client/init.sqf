@@ -63,9 +63,9 @@ if (side player == WEST) then {
 	This work is licensed under the GNU General Public License Version 3<br/>
 	To view a copy of this license got to: http://www.gnu.org/licenses/gpl.html or view the license in this mission located at: MISSION-ROOT\INS\LICENSE.txt<br/><br/>)]];
 	
-	/*if (((typeOf _unit) isKindOf "B_Helipilot_F") || ((typeOf _unit) isKindOf "rhsusf_army_ocp_helipilot") || ((typeOf _unit) isKindOf "rhsusf_army_ucp_helipilot")) then {
+	if (((typeOf _unit) isKindOf "B_Helipilot_F") || ((typeOf _unit) isKindOf "rhsusf_army_ocp_helipilot") || ((typeOf _unit) isKindOf "rhsusf_army_ucp_helipilot")) then {
 		"respawn_west" setMarkerPosLocal (getMarkerPos "respawn_Air");
-	};*/
+	};
 	LOG("CLIENT - Setting Channels");
 	[player] spawn FUNC(setChannels);
 } else {
