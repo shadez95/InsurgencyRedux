@@ -1,6 +1,13 @@
 # Insurgency Redux
 Insurgency Redux is an Arma 3 mission that is based on the original Insurgency, by Pogoman, Fireball, and Kol9yN.<br/>
 <br/>
+
+###Official Server
+71st Special Operations Group
+IP: 162.248.89.225
+Port: 2302
+
+<br/>
 #####Mod Requirements as of version 0.8.1:
 - [CBA] (https://github.com/CBATeam/CBA_A3)
 - [ACE3] (https://github.com/acemod/ACE3)
