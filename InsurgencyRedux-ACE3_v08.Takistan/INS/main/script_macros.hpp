@@ -3,8 +3,8 @@
 //#define VERSION 0.8
 #define MAJOR 0
 #define MINOR 8
-#define PATCHLVL 3
-#define BUILD 160110//DATE YY/MM/DD
+#define PATCHLVL 4
+#define BUILD 160125//DATE YY/MM/DD
 
 #define VERSION MAJOR.MINOR.PATCHLVL.BUILD
 
