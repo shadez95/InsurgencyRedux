@@ -3,9 +3,10 @@ Insurgency Redux is an Arma 3 mission that is based on the original Insurgency, 
 <br/>
 
 ###Official Server
+####THE OFFICIAL SERVER IS DOWN FOR NOW AS THE 71ST SOG COMMMUNITY IS TRANSITIONING TO A NEW SERVER
 71st Special Operations Group
-IP: 162.248.89.225
-Port: 2302
+IP: ~~162.248.89.225~~
+Port: ~~2302~~
 
 <br/>
 #####Mod Requirements as of version 0.8.1:
