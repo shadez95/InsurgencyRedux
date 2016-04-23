@@ -7,7 +7,7 @@ Insurgency Redux is an Arma 3 mission that is based on the original Insurgency, 
 IP: 192.223.29.45
 Port: 2306
 
-##Swifty Repo Link
+####Swifty Repo Link
 To easily download the mods, add this link in swifty... http://six.71stsog.com/sfty_ins_repo/
 Don't have swifty installed? Get it [here] (https://getswifty.net/)
 
