@@ -9,7 +9,7 @@ Port: 2306
 <br/><br/>
 
 #####Swifty Repo Link
-To easily download the mods, add this link in swifty... http://six.71stsog.com/sfty_ins_repo/
+If you use swifty, here is the link to add the mod repo: http://six.71stsog.com/sfty_ins_repo/
 Don't have swifty installed? Get it [here] (https://getswifty.net/)
 
 <br/>
