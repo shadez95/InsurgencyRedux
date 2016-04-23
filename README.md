@@ -3,10 +3,13 @@ Insurgency Redux is an Arma 3 mission that is based on the original Insurgency, 
 <br/>
 
 ###Official Server
-####THE OFFICIAL SERVER IS DOWN FOR NOW AS THE 71ST SOG COMMMUNITY IS TRANSITIONING TO A NEW SERVER
 71st Special Operations Group
-IP: ~~162.248.89.225~~
-Port: ~~2302~~
+IP: 192.223.29.45
+Port: 2306
+
+##Swifty Repo Link
+To easily download the mods, add this link in swifty... http://six.71stsog.com/sfty_ins_repo/
+Don't have swifty installed? Get it [here] (https://getswifty.net/)
 
 <br/>
 #####Mod Requirements as of version 0.8.1:
@@ -17,3 +20,4 @@ Port: ~~2302~~
 - [RHS: United States Armed Forces] (http://www.rhsmods.org/)
 - [Task Force Radio] (http://radio.task-force.ru/en/)
 - [All in Arma Terrain Pack] (https://forums.bistudio.com/topic/171988-all-in-arma-terrain-pack-aia-tp-a1a2oa-terrains-from-bi-in-a3/) or [CUP Terrain Pack] (http://cup-arma3.org/downloads/)
+- ASR AI
