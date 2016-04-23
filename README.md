@@ -10,7 +10,7 @@ Port: 2306
 
 #####Swifty Repo Link
 If you use swifty, here is the link to add the mod repo: http://six.71stsog.com/sfty_ins_repo/
-Don't have swifty installed? Get it [here] (https://getswifty.net/)
+<br/>Don't have swifty installed? Get it [here] (https://getswifty.net/)
 
 <br/>
 #####Mod Requirements as of version 0.8.1:
