@@ -1,13 +1,13 @@
 #include "script_component.hpp"
 LOG(MSG_INIT);
-
+waitUntil {!isNil "paramsArray"};
 INS_DEBUG = false;
 TRACE_1("Insurgency Redux Debug",INS_DEBUG);
 private["_fnc_INS_civKilled","_fnc_INS_serverFPS"];
 
 if (hasInterface) then {
 	waitUntil { !isNull player };
-	
+
 	TRACE_1("Checking to make sure you are you for JIP reasons",player);
 	if (player != player) then {
 		TRACE_1("Player still does not equal player",player);
@@ -17,7 +17,7 @@ if (hasInterface) then {
 };
 
 for "_i" from 0 to ((count paramsArray) - 1) do {
-    missionNamespace setVariable [configName ((missionConfigFile/"Params") select _i), ARG_1(paramsArray,_i), true];
+  missionNamespace setVariable [configName ((missionConfigFile/"Params") select _i), ARG_1(paramsArray,_i), true];
 	LOG(FORMAT_3("INS Params-%1    %2 = %3", time, configName ((missionConfigFile/"Params") select _i), ARG_1(paramsArray,_i)));
 };
 
@@ -33,7 +33,7 @@ _fnc_INS_serverFPS = {
 			INS_FPS = diag_fps;
 			(owner _this) publicVariableClient "INS_FPS";
 		};
-		
+
 		if (local _this) then {
 			waitUntil { !(isNil "INS_FPS") };
 			hintSilent format["Server FPS: %1",INS_FPS];

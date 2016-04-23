@@ -34,7 +34,7 @@ if (side player == WEST) then {
 		if (([str(_x), "INS_noOpfor"] call CBA_fnc_find) >= 0) then { deleteMarkerLocal _x; TRACE_1("CLIENT - Deleteing marker",_x); };
 		false
 	} count allMapMarkers;
-	
+
 	//Create diary for cache and lives
 	//_unit createDiarySubject ["INS_DIARY","Insurgency Redux"];
 	LOG("CLIENT - Creating briefing for client");
@@ -62,8 +62,8 @@ if (side player == WEST) then {
 	Copyright 2015 Dixon Begay aka dixon13. All rights reserved.<br/>
 	This work is licensed under the GNU General Public License Version 3<br/>
 	To view a copy of this license got to: http://www.gnu.org/licenses/gpl.html or view the license in this mission located at: MISSION-ROOT\INS\LICENSE.txt<br/><br/>)]];
-	
-	if (((typeOf _unit) isKindOf "B_Helipilot_F") || ((typeOf _unit) isKindOf "rhsusf_army_ocp_helipilot") || ((typeOf _unit) isKindOf "rhsusf_army_ucp_helipilot")) then {
+
+	if (((typeOf player) isKindOf "B_Helipilot_F") || ((typeOf player) isKindOf "rhsusf_army_ocp_helipilot") || ((typeOf player) isKindOf "rhsusf_army_ucp_helipilot")) then {
 		"respawn_west" setMarkerPosLocal (getMarkerPos "respawn_Air");
 	};
 	LOG("CLIENT - Setting Channels");
@@ -77,7 +77,7 @@ if (side player == WEST) then {
 		if (([str(_x), "INS_MHQ"] call CBA_fnc_find) >= 0) then { deleteMarkerLocal _x; TRACE_1("CLIENT - Deleteing marker",_x); };
 		false
 	} count allMapMarkers;
-	
+
 	//Create diary for cache and lives
 	//_unit createDiarySubject ["INS_DIARY","Insurgency Redux"];
 	LOG("CLIENT - Creating briefing for client");
@@ -87,7 +87,7 @@ if (side player == WEST) then {
 	To see how many caches are left <execute expression = QUOTE(QUOTE([player] call FUNC(cacheDiary))) >CLICK HERE</execute><br/><br/>
 	To see how many blufor lives are left <execute expression = QUOTE(QUOTE([player] call FUNC(livesCheck))) >CLICK HERE</execute><br/><br/>
 	To see what the server FPS is <execute expression = QUOTE(QUOTE([player] call FUNC(serverFPS))) >CLICK HERE</execute><br/><br/><br/>
-	
+
 	<execute expression = QUOTE(QUOTE(call FUNC(openFieldManual)))>Insurgency Redux Field Manual</execute><br/><br/>
 	Author: dixon13<br/>
 	Version: VERSION<br/><br/>
@@ -96,22 +96,22 @@ if (side player == WEST) then {
 	Copyright 2015 Dixon Begay aka dixon13. All rights reserved.<br/>
 	This work is licensed under the GNU General Public License Version 3<br/>
 	To view a copy of this license got to: http://www.gnu.org/licenses/gpl.html or view the license in this mission located at: MISSION-ROOT\INS\LICENSE.txt<br/><br/>)]];
-	
+
 	LOG("CLIENT - Creating actions for player");
 	player setVariable ["INS_can_teleport",true];
 	player addAction ["Hide Weapons",FUNC(hideWeapons),nil,1.5,true,true,"",QUOTE(([_target] call FUNC(checkWeap) && (vest _target == '' )))];
 	player addAction ["Show Weapons",FUNC(showWeapons),nil,1.5,true,true,"","count (_target getVariable ['XON_INVENTORY',[]]) > 0"];
 	player addAction ["Teleport",FUNC(opforTeleport),nil,1.5,true,true,"","!(visibleMap) && (alive _target) && (_target getVariable ['INS_can_teleport',true])"];
-	
+
 	LOG("CLIENT - Attaching a Respawn Event Handler for actions");
 	player addEventHandler ["Respawn", {
 		params ["_unit","_corpse"];
-		
+
 		_unit addAction ["Hide Weapon",FUNC(hideWeapons),nil,1.5,true,true,"",QUOTE(([_target] call FUNC(checkWeap) && (vest _target == '' )))];
 		_unit addAction ["Show Weapon",FUNC(showWeapons),nil,1.5,true,true,"","count (_target getVariable ['XON_INVENTORY',[]]) > 0"];
 		_unit addAction ["Teleport",FUNC(opforTeleport),nil,1.5,true,true,"","!(visibleMap) && (alive _target) && (_target getVariable ['INS_can_teleport',true])"];
 	}];
-	
+
 	LOG("CLIENT - Setting Channels");
 	[player] spawn FUNC(setChannels);
 };
